@@ -59,6 +59,19 @@
 
 }
 
+
+#pragma mark- 屏幕旋转之后保持相对布局不变
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+	[super viewWillTransitionToSize:size withTransitionCoordinator: coordinator];
+	[self.view configureLayoutWithBlock:^(YGLayout * layout) {
+		layout.width = YGPointValue(size.width);
+		layout.height = YGPointValue(size.height);
+	}];
+	[self.view.yoga applyLayoutPreservingOrigin: YES];
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
