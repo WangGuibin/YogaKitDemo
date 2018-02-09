@@ -1,0 +1,6 @@
+platform :ios,'8.0'
+
+use_frameworks!
+target 'FlexDemo' do
+pod 'YogaKit', '~> 1.6.0'
+end 
